@@ -1,0 +1,81 @@
+<html>
+
+<head>
+    <title>function
+    </title>
+    <meta name="description" value="<?php// echo $description; ?>">
+    </meta>
+    <meta name="name" content="<?php //echo AUTHOR;?>">
+    </meta>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    </meta>
+    <meta name="icon" href="<?php echo BANKLOGO; ?>" type="images">
+    </meta>
+    <link rel="stylesheet" href="CSS/global.css">
+    <link rel="stylesheet" href="Bootstrap/css/bootstrap.min.css">
+    <script src="Bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="Bootstrap/Jquery/jquery-3.6.0.min.js"> </script>
+    <link rel="stylesheet" href="Bootstrap/fontawesome-free-5.15.3-web/css/all.css">
+    <?php ?>
+
+</head>
+
+<body>
+    <h3>Simple Calculator</h3>
+    </style>
+    <form Name="calc">
+        <table id="calc" border=2>
+            <tr>
+                <td colspan=5>
+                    <input name="firstno" id="firstnumber"
+                        onkeypress="return event.charCode >= 48 && event.charCode <= 57" type="text">
+                    <input name="secondno" id="secondnUMber"
+                        onkeypress="return event.charCode >= 48 && event.charCode <= 57" type="text">
+                    <input id="result" name="finalresult"
+                        onkeypress="return event.charCode >= 48 && event.charCode <= 57" type="text">
+                </td>
+            </tr>
+            <tr>
+                <td><input id="btn" type=button value="+" onclick="add()"></td>
+            </tr>
+            <tr>
+                <td><input id="btn" type=button value="-" onclick="Minus()"></td>
+            </tr>
+            <tr>
+                <td><input id="btn" type=button value="*" onclick="mutl()"></td>
+            </tr>
+            <tr>
+                <td><input id="btn" type=button value="/" onclick="divide()"></td>
+            </tr>
+        </table>
+    </form>
+</body>
+<script type="text/javascript">
+    function add() {
+        var firstNumber = document.getElementById("firstnumber").value;
+        console.log(firstNumber);
+        var secondNumber = document.getElementById("secondnUMber").value;
+        var added = parseInt(firstNumber) + parseInt(secondNumber);
+        document.getElementById("result").value = added;
+    }
+    function Minus() {
+        var firstNumber = document.getElementById("firstnumber").value;
+        var secondNumber = document.getElementById("secondnUMber").value;
+        var mins = parseInt(firstNumber) - parseInt(secondNumber);
+        document.getElementById("result").value = mins;
+    }
+    function mutl() {
+        var firstNumber = document.getElementById("firstnumber").value;
+        var secondNumber = document.getElementById("secondnUMber").value;
+        var mult = parseInt(firstNumber) * parseInt(secondNumber);
+        document.getElementById("result").value = mult;
+    }
+    function divide() {
+        var firstNumber = document.getElementById("firstnumber").value;
+        var secondNumber = document.getElementById("secondnUMber").value;
+        var divide = parseInt(firstNumber) / parseInt(secondNumber);
+        document.getElementById("result").value = divide;
+    }
+</script>
+
+</html>

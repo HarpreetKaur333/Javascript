@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Hostel Reservations
+    </title>
+    <link rel="stylesheet" href="CSS/global.css">
+    <link rel="stylesheet" href="Bootstrap/css/bootstrap.min.css">
+    <script src="Bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="Bootstrap/Jquery/jquery-3.6.0.min.js"> </script>
+    <link rel="stylesheet" href="Bootstrap/fontawesome-free-5.15.3-web/css/all.css">
+
+</head>
+
+<body>
+
+    <h2>Hostel Reservations</h2>
+    <section class="gradient-custom">
+        <div class="container py-3">
+            <div class="row  align-items-center">
+                <div class="col-lg-12 col-md-10">
+                    <div class="card shadow-2-strong card-registration" style="border-radius: 15px;">
+                        <div class="card-body p-4 p-md-5">
+                            <h5 style="color:red;margin-left:30px;"></h5>
+                            <h2 class=" pb-2 pb-md-0">Hostel Resveration</h2>
+                            <hr class="new5">
+                            <form method="POST" value="registration_form" class="form-inline"
+                                enctype="multipart/form-data" name="reg_form" onsubmit="return validateForm()">
+                                <input type="hidden" name="op" value="5">
+                                <input type="hidden" name="hideflags" value="">
+                                <div class="row">
+                                    <h4 class="mb-4 pb-2 pb-md-0 mb-md-3">General Information</h4>
+                                    <div class="col-lg-4 mb-4">
+                                        <div class="form-outline">
+                                            <label class="form-label">First Name</label>
+                                            <input type="text" name="fullname" id="txtfullnameid"
+                                                class="form-control form-control-lg" value="" />
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 mb-4">
+                                        <div class="form-outline">
+                                            <label class="form-label">Last Name</label>
+                                            <input type="text" name="lastname" id="txtlastnameid"
+                                                class="form-control form-control-lg" value="" />
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 mb-4">
+                                        <div class="form-outline">
+                                            <label class="form-label">Age</label>
+                                            <select name="age" id="ddlageid" class="form-control form-control-lg">
+                                                <option value="0">==select Option==</option>
+                                                <option value="1">10-24</option>
+                                                <option value="2">20-25</option>
+                                                <option value="3">25-30</option>
+                                                <option value="4">30-50</option>
+                                                <option value="5">More than 50</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 mb-4">
+                                        <div class="form-outline">
+                                            <label class="form-label">Address Line</label>
+                                            <textarea id="w3review" name="address" rows="2" cols="3"
+                                                class="form-control form-control-lg" id="txtaddressid">
+
+                                                </textarea>
+
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 mb-4">
+                                        <div class="form-outline">
+                                            <label class="form-label">Phone Number</label>
+                                            <input type="tel" name="phoneno" id="txtphnid"
+                                                class="form-control form-control-lg" value="" maxlength="50" />
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 mb-4">
+                                        <div class="form-outline">
+                                            <label class="form-label">From Date</label>
+                                            <input type="Date" id="fromdate" class="form-control form-control-lg"
+                                                name="fromdate" value="" />
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 mb-4">
+                                        <div class="form-outline">
+                                            <label class="form-label">To Date</label>
+                                            <input type="Date" id="todate" class="form-control form-control-lg"
+                                                name="todate" value="" />
+                                        </div>
+                                    </div>
+
+
+                                    <div class="col-md-4 mb-4">
+                                        <div class="form-outline">
+                                            <label class="form-label">Email</label>
+                                            <input type="email" name="email" id="txtEmailid"
+                                                class="form-control form-control-lg" placeholder="Email" value="" />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12 mb-4">
+                                        <button type="submit" name="Continue" class="btn btn btn-primary btn-lg"
+                                            data-mdb-ripple-color="blue" value="Submit">Submit</button>
+                                        <button type=" submit" name="Cancel" class="btn btn btn-primary btn-lg"
+                                            data-mdb-ripple-color="blue" value="Cancel">Cancel</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script type="text/javascript">
+        function validateForm() {
+            var fname = document.forms["reg_form"]["fullname"].value;
+            var laname = document.forms["reg_form"]["lastname"].value;
+            var age = document.forms["reg_form"]["age"].value;
+            var address = document.forms["reg_form"]["address"].value;
+            var phoneno = document.forms["reg_form"]["phoneno"].value;
+            var fromdate = document.forms["reg_form"]["fromdate"].value;
+            var todate = document.forms["reg_form"]["todate"].value;
+            var email = document.forms["reg_form"]["email"].value;
+            if (fname == "") {
+                alert("please enetr first name");
+                return false;
+            }
+            else if (laname == "") {
+                alert("please enetr Last name");
+                return false;
+            }
+            else if (age == 0) {
+                alert("please enetr Age ");
+                return false;
+            }
+            else if (address == "") {
+                alert("please enetr address");
+                return false;
+            }
+            else if (phoneno == "") {
+                alert("please enetr phoneno ");
+                return false;
+            }
+
+            else if (fromdate == "") {
+                alert("please enetr From Date");
+                return false;
+            }
+            else if (todate == "") {
+                alert("please enetr To Date");
+                return false;
+            }
+            else if (email == "") {
+                alert("please enetr Email");
+                return false;
+            }
+            else {
+                alert("You are successfully Done..!!!" + "Username: " + fname);
+                return false;
+            }
+        }
+
+    </script>
+
+</body>
+
+</html>
