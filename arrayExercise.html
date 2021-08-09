@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Hostel Reservations
+    </title>
+    <link rel="stylesheet" href="CSS/global.css">
+    <script src="JS/global.js"></script> <!-- external js file -->
+    <link rel="stylesheet" href="Bootstrap/css/bootstrap.min.css">
+    <script src="Bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="Bootstrap/Jquery/jquery-3.6.0.min.js"> </script>
+    <link rel="stylesheet" href="Bootstrap/fontawesome-free-5.15.3-web/css/all.css">
+
+    <script type="text/javascript">
+        var array = [[1, 5, 8], ["hello", "hi"], 4, 5]
+        console.log(array);
+        console.log(array[1]);
+        console.log(array.length);
+
+
+        //use push method to add elements at end of array
+        console.log(array.push("javascript"));
+        console.log(array);
+        //pop remove element at first place
+        console.log(array.pop());
+        console.log(array);
+
+        var donuts = ["glazed", "strawberry frosted", "powdered", "Boston creme"];
+
+        donuts.pop();
+
+        donuts.pop();
+
+        donuts.pop();
+
+        donuts.push("maple walnut");
+
+        donuts.pop();
+
+        donuts.push("sprinkled");
+
+        console.log(donuts);
+
+        var donuts = ["glazed", "chocolate frosted", "Boston creme", "glazed cruller"];
+
+        donuts.splice(1, 1, "chocolate cruller", "creme de leche");
+        console.log(donuts);
+
+        donuts.forEach(function (donuts) {
+            donuts += "hello";
+            console.log(donuts);
+
+        });
+
+    </script>
+</head>
+
+<body>
+
+    <h2>JavaScript</h2>
+
+</body>
+
+</html>

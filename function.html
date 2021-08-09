@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Hostel Reservations
+    </title>
+    <link rel="stylesheet" href="CSS/global.css">
+    <script src="JS/global.js"></script> <!-- external js file -->
+    <link rel="stylesheet" href="Bootstrap/css/bootstrap.min.css">
+    <script src="Bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="Bootstrap/Jquery/jquery-3.6.0.min.js"> </script>
+    <link rel="stylesheet" href="Bootstrap/fontawesome-free-5.15.3-web/css/all.css">
+
+    <script type="text/javascript">
+        function sayHello() {
+            var msg = "function withour return statement";
+            console.log(msg);
+        }
+        sayHello();
+        function sayHello1() {
+            var msg = "return statement by function";
+            return msg;
+        }
+        var result = sayHello1();
+        console.log(result);
+        console.log(sayHello1());
+
+
+        function ParametersArguments(a, b) { //these are parameters
+            return a + b;
+        }
+        console.log(ParametersArguments(5, 6)); //arguments means valeus
+
+        function laugh(num) {
+            var stringLaugh = '';
+            for (var i = 0; i < num; i++) {
+                stringLaugh += 'ha';
+            }
+            return stringLaugh;
+        }
+        console.log(laugh(5));
+
+        function square(x) {
+            return x * x;
+        }
+        function subsquare(x) {
+            return square(x) - 4;
+        }
+        console.log(subsquare(5));
+
+
+        console.log("Shadowing ​");
+        var booktitle = "A Passage to India";
+        console.log(booktitle);
+        function displayEnglishBook() {
+            booktitle = "To Kill a Mockingbird";
+            console.log(booktitle);
+        }
+        displayEnglishBook();
+        console.log(booktitle);
+
+        console.log("oevrwriting");
+        var booktitle = "A Passage to India";
+        console.log(booktitle);
+        function displayEnglishBook() {
+            var booktitle = "To Kill a Mockingbird";
+            console.log(booktitle);
+        }
+        displayEnglishBook();
+        console.log(booktitle);
+
+        var y = 1;
+        function addTwo() {
+            y = y + 2;
+        }
+        addTwo();
+        y = y + 1;
+        console.log(y);
+    </script>
+</head>
+
+<body>
+
+    <h2>JavaScript</h2>
+
+</body>
+
+</html>

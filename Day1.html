@@ -37,10 +37,100 @@
         console.log(str + str1);
 
         var greeting = "hello.";
-        console.log(greeting + "how r you harpreet");
+        console.log(greeting + "how r you harpreet\n");
 
-        var msg = "hello \nhow\n are you\t Javascript"
+        var msg = "hello \nhow\n are you\t Javascript\n"
         console.log(msg);
+        var quote = "Stay awhile and listen!"; console.log(quote[6]); //it also include space 
+
+        var a = "hello";
+        var b = "HELLO";
+        console.log(a == b);
+        console.log(a != b);
+
+        var joke = "Why couldn't the shoes go out and play? ​They were all \"tied\" up!";
+        console.log(joke);
+
+        // true = 1;
+        // false = 0;
+        console.log("1" == 1);
+        console.log(0 == false);
+        console.log("" == false);
+
+        console.log("loosely typed language" + 120);
+        console.log("implicit type coercion automatically data type conversion");
+
+        console.log("hello" % 10);
+
+        console.log("exercise");
+        var bill = 10.25 + 3.99 + 7.15;
+        var tip = bill * 15 / 100;
+        var total = bill + tip;
+        console.log(total);
+
+        var item;
+        var buy;
+        if (item == buy) {
+            console.log("buy item");
+        } else {
+            console.log("dont buy item");
+        }
+
+        var postion = 2;
+        var player = "abc";
+        var madal;
+        if (postion === 1) {
+            madal = "gold";
+        }
+        else if (postion === 2) { madal = "silver"; }
+        else if (postion === 3) {
+            madal = "bronze";
+        } else {
+            madal = "no madal";
+        }
+        console.log(player + "received a " + madal + "madal");
+
+        var musicians = 0;
+        var strg;
+        if (musicians <= 0) {
+            strg = "no group";
+        }
+        else if (musicians == 1) { strg = "solo"; }
+        else if (musicians == 2) {
+            strg = "duet";
+        }
+        else if (musicians == 3) {
+            strg = "trio";
+        }
+        else if (musicians == 4) {
+            strg = "quart";
+        }
+        else {
+            strg = "large group more than 4";
+        }
+        console.log(strg);
+
+        var text;
+        switch (new Date().getDay()) {
+            case 6:
+                text = "Today is Saturday";
+                break;
+            case 0:
+                text = "Today is Sunday";
+                break;
+            default:
+                text = "Looking forward to the Weekend";
+        }
+        console.log(text);
+        var x = 9;
+        while (x >= 1) {
+            console.log("hello" + x);
+            x = x - 1;
+        }
+
+        for (var x = 9; x >= 1; x--) {
+            console.log("hello" + x);
+        }
     </script>
 </head>
 
