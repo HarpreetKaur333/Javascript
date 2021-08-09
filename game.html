@@ -3,11 +3,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 
 <head>
-    <meta name="author" content="Nj Subedi" />
-    <meta name="http-equiv" content="charset: utf-8" />
-    <meta name="description"
-        content="Tic Tac Toe game developed using HTML and Javascript. Simple- commented and uncompressed." />
-    <meta name="generator" content="Bluefish Editor (Ubuntu OS, Version 12.04 LTS)" />
+    <title>Hostel Reservations
+    </title>
+    <link rel="stylesheet" href="CSS/global.css">
+    <link rel="stylesheet" href="Bootstrap/css/bootstrap.min.css">
+    <script src="Bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="Bootstrap/Jquery/jquery-3.6.0.min.js"> </script>
+    <link rel="stylesheet" href="Bootstrap/fontawesome-free-5.15.3-web/css/all.css">
 
     <title>Tic Tac Toe - HTML and Javascript</title>
     <style type="text/css">
@@ -111,32 +113,22 @@
         </div>
     </div>
     <script type="text/javascript">
-        let currentPlayer = "x";
-
-        //stores the status of the game, whether its over or still in play
-        let gameStatus = "Game On";
+        var currentPlayer = "x";
+        var gameStatus = "Game On";
 
         //Gets all Boxes elements
         const boxes = document.getElementsByClassName("box");
 
         //loops through all the elements
-        for (let i = 0; i < boxes.length; i++) {
-            //adds event listener to each box;
+        for (var i = 0; i < boxes.length; i++) {
             boxes[i].addEventListener("click", function () {
-                //checks if the box has an x or an o in it and also checks if the game is still on
                 if (boxes[i].innerHTML.trim() == "" && gameStatus == "Game On") {
-                    //adds x or o for the current play in their choosen box
                     boxes[i].innerHTML = currentPlayer;
 
-                    //changes player turns
                     currentPlayer = currentPlayer == "x" ? "o" : "x";
-
-                    //changes player's turn label on top of the game
-                    document.getElementById(
-                        "player"
+                    document.getElementById("player"
                     ).innerHTML = currentPlayer.toUpperCase();
 
-                    //checks 3 matching x's or o's
                     if (
                         boxes[0].innerHTML == boxes[1].innerHTML &&
                         boxes[1].innerHTML == boxes[2].innerHTML &&
@@ -190,9 +182,9 @@
             });
         }
 
-        //resets the game
+
         document.getElementById("reset").addEventListener("click", function () {
-            for (let i = 0; i < boxes.length; i++) {
+            for (var i = 0; i < boxes.length; i++) {
                 boxes[i].innerHTML = "";
                 boxes[i].style.backgroundColor = "#dee9ec";
                 boxes[i].style.color = "black";
@@ -203,7 +195,7 @@
             gameStatus = "Game On";
         });
 
-        //displays the winner
+
         function showWinner(x, y, z) {
             boxes[x].style.background = "#0d8b70";
             boxes[x].style.color = "white";
