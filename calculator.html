@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Calculator</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+        }
+        .calculator {
+            border: 1px solid #ccc;
+            padding: 20px;
+            border-radius: 10px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .display {
+            width: 100%;
+            padding: 10px;
+            font-size: 2em;
+            text-align: right;
+            border: 1px solid #ccc;
+            margin-bottom: 10px;
+        }
+        .buttons {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+        }
+        .buttons button {
+            padding: 20px;
+            font-size: 1.5em;
+            border: none;
+            background-color: #eee;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+        .buttons button:hover {
+            background-color: #ddd;
+        }
+        .buttons button.operation {
+            background-color: #ff9800;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <div class="calculator">
+        <div class="display" id="display"></div>
+        <div class="buttons">
+            <button onclick="appendNumber('7')">7</button>
+            <button onclick="appendNumber('8')">8</button>
+            <button onclick="appendNumber('9')">9</button>
+            <button class="operation" onclick="chooseOperation('/')">/</button>
+            <button onclick="appendNumber('4')">4</button>
+            <button onclick="appendNumber('5')">5</button>
+            <button onclick="appendNumber('6')">6</button>
+            <button class="operation" onclick="chooseOperation('*')">*</button>
+            <button onclick="appendNumber('1')">1</button>
+            <button onclick="appendNumber('2')">2</button>
+            <button onclick="appendNumber('3')">3</button>
+            <button class="operation" onclick="chooseOperation('-')">-</button>
+            <button onclick="appendNumber('0')">0</button>
+            <button onclick="clearDisplay()">C</button>
+            <button onclick="calculate()">=</button>
+            <button class="operation" onclick="chooseOperation('+')">+</button>
+        </div>
+    </div>
+
+    <script src="calculator.js"></script>
+</body>
+</html>

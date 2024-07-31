@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Calendar</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+        }
+        .calendar {
+            width: 300px;
+            border: 1px solid #ccc;
+            padding: 20px;
+            border-radius: 10px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .calendar-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .calendar-header button {
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+        .calendar-header h2 {
+            margin: 0;
+        }
+        .calendar-body {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 5px;
+            margin-top: 10px;
+        }
+        .calendar-body div {
+            padding: 10px;
+            text-align: center;
+            border: 1px solid #ccc;
+        }
+        .calendar-body .day-header {
+            font-weight: bold;
+        }
+        .calendar-body .day {
+            cursor: pointer;
+            background-color: #eee;
+        }
+        .calendar-body .day:hover {
+            background-color: #ddd;
+        }
+        .calendar-body .day.selected {
+            background-color: #ff9800;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <div class="calendar">
+        <div class="calendar-header">
+            <button onclick="prevMonth()">&#9664;</button>
+            <h2 id="monthYear"></h2>
+            <button onclick="nextMonth()">&#9654;</button>
+        </div>
+        <div class="calendar-body" id="calendarBody"></div>
+    </div>
+
+    <script src="calendar.js"></script>
+</body>
+</html>
