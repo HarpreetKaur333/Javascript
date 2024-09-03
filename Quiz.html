@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Quiz Application</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            padding: 10px;
+            background-color: #f4f4f4;
+        }
+
+        .quiz-container {
+            max-width: 600px;
+            width: 100%;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .question {
+            margin-bottom: 15px;
+        }
+
+        .options {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .options li {
+            margin-bottom: 10px;
+        }
+
+        .options li input[type="radio"] {
+            margin-right: 10px;
+        }
+
+        .btn-container {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button[disabled] {
+            background-color: #ccc;
+        }
+
+        .feedback {
+            margin-top: 10px;
+            font-weight: bold;
+        }
+
+        @media (max-width: 768px) {
+            .quiz-container {
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="quiz-container">
+        <div id="quiz">
+        </div>
+        <div class="btn-container">
+            <button id="prevBtn" onclick="prevQuestion()" disabled>Previous</button>
+            <button id="nextBtn" onclick="nextQuestion()">Next</button>
+        </div>
+        <button id="submitBtn" onclick="submitQuiz()" style="display:none;">Submit</button>
+        <div id="result" style="display:none;">
+        </div>
+    </div>
+
+    <script>
+        const questions = [
+            {
+                question: "What is the capital of France?",
+                options: ["Berlin", "Madrid", "Paris", "Lisbon"],
+                answer: "Paris"
+            },
+            {
+                question: "Which language runs in a web browser?",
+                options: ["Java", "C", "Python", "JavaScript"],
+                answer: "JavaScript"
+            },
+            {
+                question: "What does CSS stand for?",
+                options: ["Central Style Sheets", "Cascading Style Sheets", "Cascading Simple Sheets", "Cars SUVs Sailboats"],
+                answer: "Cascading Style Sheets"
+            },
+            {
+                question: "What does HTML stand for?",
+                options: ["Hypertext Markup Language", "Hypertext Markdown Language", "Hyperloop Machine Language", "Helicopters Terminals Motorboats Lamborginis"],
+                answer: "Hypertext Markup Language"
+            }
+        ];
+
+        let currentQuestionIndex = 0;
+        let score = 0;
+
+        function loadQuestion() {
+            const quizContainer = document.getElementById('quiz');
+            const questionData = questions[currentQuestionIndex];
+            quizContainer.innerHTML = `
+                <div class="question">${questionData.question}</div>
+                <ul class="options">
+                    ${questionData.options.map((option, index) => `
+                        <li>
+                            <label>
+                                <input type="radio" name="option" value="${option}" onclick="handleOptionSelect('${option}')">
+                                ${option}
+                            </label>
+                        </li>
+                    `).join('')}
+                </ul>
+                <div id="feedback" class="feedback"></div>
+            `;
+
+            document.getElementById('prevBtn').disabled = currentQuestionIndex === 0;
+            document.getElementById('nextBtn').style.display = currentQuestionIndex === questions.length - 1 ? 'none' : 'inline-block';
+            document.getElementById('submitBtn').style.display = currentQuestionIndex === questions.length - 1 ? 'inline-block' : 'none';
+        }
+
+        function handleOptionSelect(selectedOption) {
+            const questionData = questions[currentQuestionIndex];
+            const feedbackContainer = document.getElementById('feedback');
+
+            if (selectedOption === questionData.answer) {
+                feedbackContainer.textContent = "Correct!";
+                feedbackContainer.style.color = "green";
+            } else {
+                feedbackContainer.textContent = "Incorrect!";
+                feedbackContainer.style.color = "red";
+            }
+        }
+
+        function nextQuestion() {
+            currentQuestionIndex++;
+            loadQuestion();
+        }
+
+        function prevQuestion() {
+            currentQuestionIndex--;
+            loadQuestion();
+        }
+
+        function submitQuiz() {
+            questions.forEach((questionData, index) => {
+                const selectedOption = document.querySelector(`input[name="option"]:checked`);
+
+                if (selectedOption && selectedOption.value === questionData.answer) {
+                    score++;
+                }
+            });
+
+            document.getElementById('quiz').style.display = 'none';
+            document.getElementById('submitBtn').style.display = 'none';
+            document.getElementById('result').style.display = 'block';
+            document.getElementById('result').innerHTML = `<div>Your Score: ${score} / ${questions.length}</div>`;
+        }
+
+        loadQuestion();
+    </script>
+</body>
+</html>
